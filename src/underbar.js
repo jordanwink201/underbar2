@@ -414,7 +414,6 @@ _.extend = function(obj) {
   //
   // Hint: Use Array.isArray to check if something is an array
   _.flatten = function(nestedArray, result) {
-    console.log(nestedArray, nestedArray[0]);
 
     var results = [];
 
@@ -430,7 +429,6 @@ _.extend = function(obj) {
 
     flattenRecursion(nestedArray);
 
-    console.log("results: ", results);
     return results;
   };
 
