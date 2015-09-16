@@ -435,11 +435,47 @@ _.extend = function(obj) {
   // Takes an arbitrary number of arrays and produces an array that contains
   // every item shared between all the passed-in arrays.
   _.intersection = function() {
+
+    var results = [];
+
+    for (var i = 0; i < arguments.length-1; i++){
+      for (var j = 0; j < arguments[i].length; j++){
+        for (var h = 0; h < arguments[i+1].length; h++){
+          if (arguments[i][j] === arguments[i+1][h]) {
+            results.push(arguments[i][j]);
+          }
+        }        
+      }
+    }
+
+    return results;
+
   };
 
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
+
+    var results = [];
+//debugger;
+    for (var i = 0; i < arguments[0].length; i++){       
+      var flag = false;
+
+      for (var h = 1; h < arguments.length; h++){
+          for (var x = 0; x < arguments[h].length; x++){
+          if (arguments[0][i] === arguments[h][x]) {
+            flag = true;
+          }
+        } 
+      } 
+      if(!flag) {
+        results.push(arguments[0][i]);
+      }       
+    }
+
+    console.log(results);
+    return results;
+
   };
 
   // Returns a function, that, when invoked, will only be triggered at most once
